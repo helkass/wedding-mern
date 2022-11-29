@@ -2,7 +2,7 @@
 # Hi, I'm Helka septyawan! 👋
 
 MERN stack development web app "Wedding" invitation.
-## Deployment
+## Development
 
 To deploy this project client
 
