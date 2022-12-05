@@ -5,6 +5,7 @@ import { Hero } from "./components/home/Hero.style.jsx";
 import { Options } from "./components/home/Options.style.jsx";
 import { Reviews } from "./components/home/Reviews.style.jsx";
 import { Works } from "./components/home/Works.style.jsx";
+import {Packet} from "./components/home/Packets.style.jsx"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Options />
       <Works />
       <Reviews />
+      <Packet/>
     </div>
   );
 }

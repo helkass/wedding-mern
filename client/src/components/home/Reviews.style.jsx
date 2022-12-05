@@ -1,24 +1,14 @@
 import styled from "styled-components";
 import { Container } from "../Container";
-import { AiFillStar } from "react-icons/ai";
-import { data } from "../../constants/reviews.data.js";
-
-import Slider from "react-slick";
+import { AiFillStar } from "react-icons/ai"
+import {data} from "../../constants/reviews.data.js"
 
 export const Reviews = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 600,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
   return (
     <Container>
       <Content>
         <h2>What are they saying</h2>
         <List>
-          <Slider {...settings}>
             {data.map((item, i) => (
               <Card key={i}>
                 <p>{item.desc}</p>
@@ -30,7 +20,6 @@ export const Reviews = () => {
                 </Flex>
               </Card>
             ))}
-          </Slider>
         </List>
       </Content>
     </Container>

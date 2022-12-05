@@ -1,1 +1,4 @@
 website reference = https://zeinvitation.com/
+
+bg-color = #b5f4ed 
+color: #10a19d
