@@ -101,7 +101,6 @@ const Navbar = styled.nav`
   text-transform: capitalize;
   height: 5rem;
   width: 100vw;
-  max-width: 1300px;
   position: fixed;
   z-index: 50;
 `;

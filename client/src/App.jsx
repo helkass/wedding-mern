@@ -9,16 +9,16 @@ import {Packet} from "./components/home/Packets.style.jsx"
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Hero />
-      <About />
-      <Features />
-      <Options />
-      <Works />
-      <Reviews />
-      <Packet/>
-    </div>
+	<div className="App">
+		<Header />
+		<Hero />
+		<About />
+		<Features/>
+		<Options />
+		<Works />
+		<Reviews />
+		<Packet/>
+	</div>
   );
 }
 
