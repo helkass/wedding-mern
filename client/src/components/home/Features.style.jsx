@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { Container } from "../Container";
 import { icons, content } from "../../constants/nav.data";
 
-export const Features = () => {
+export const Features = ({forwardRef}) => {
   return (
-    <Main>
+    <Main ref={forwardRef}>
       <Container>
         <Content>
           <h1>Features</h1>
@@ -71,6 +71,11 @@ const Card = styled.div`
     transform: scale(110%);
     box-shadow: rgba(128, 244, 235, 0.797) 1.95px 1.95px 2.6px;
   }
+
+  @media (max-width: 548px){
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Icons = styled.span`
@@ -98,10 +103,28 @@ const CardItems = styled.div`
   > span {
     color: #b2b2b2;
   }
+
+  @media (max-width: 548px){
+    text-align: center;
+    line-height: 1.2rem;
+
+    > p{
+      font-size: 1.2rem;
+    }
+
+    >span{
+      font-size: 0.9rem;
+    }
+  }
 `;
 
 const Grid = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 10px;
+
+  @media (max-width: 548px){
+    grid-template-columns: auto auto;
+    gap: 2;
+  }
 `;

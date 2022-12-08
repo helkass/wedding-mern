@@ -1,5 +1,6 @@
 export const packets = [
 	{
+		bgColor: "#CCD6A6",
 		grade: "silver",
 		data: [
 			{
@@ -97,6 +98,7 @@ export const packets = [
 		price_finally: 99.000
 	},
 	{
+		bgColor: "#EF9A53",
 		grade: "gold",
 		data: [
 			{
@@ -194,6 +196,7 @@ export const packets = [
 		price_finally: 140.000
 		},
 		{
+			bgColor: "#97DECE",
 			grade: "diamond",
 			data: [
 				{

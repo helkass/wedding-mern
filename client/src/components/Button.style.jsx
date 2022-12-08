@@ -15,4 +15,8 @@ export const Button = styled.button`
     color: #b5f4ed;
     background-color: #10a19d;
   }
+
+  &:focus {
+    outline: none;
+  }
 `;

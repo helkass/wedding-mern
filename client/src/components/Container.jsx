@@ -12,7 +12,7 @@ const Main = styled.div`
   display: flex;
   height: 100%;
 
-  @media (max-width: 540px) {
-    width: 90%;
+  @media (max-width: 768px) {
+    width: calc(100% -20px);
   }
 `;

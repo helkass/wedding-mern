@@ -2,28 +2,31 @@ import styled from "styled-components";
 import { Container } from "../Container";
 import { options } from "../../constants/options.data";
 
-export const Options = () => {
+export const Options = ({forwardRef}) => {
+  
   return (
-    <Container>
-      <Main>
-        <Title>
-          <h1>Various Design Options</h1>
-          <p>Choose an invitation design that suits your taste</p>
-        </Title>
-        <Grid>
-          {options.map((item) => (
-            <Items key={item.id}>
-              <p>#{item.title} design</p>
-              <img src={item.image} alt="examples" />
-              <Buttons>
-                <View>Quick View</View>
-                <Order>Order Now</Order>
-              </Buttons>
-            </Items>
-          ))}
-        </Grid>
-      </Main>
-    </Container>
+    <section ref={forwardRef}>
+      <Container>
+        <Main>
+          <Title>
+            <h1>Various Design Options</h1>
+            <p>Choose an invitation design that suits your taste</p>
+          </Title>
+          <Grid>
+            {options.map((item) => (
+              <Items key={item.id}>
+                <p>#{item.title} design</p>
+                <img src={item.image} alt="examples" />
+                <Buttons>
+                  <View>Quick View</View>
+                  <Order>Order Now</Order>
+                </Buttons>
+              </Items>
+            ))}
+          </Grid>
+        </Main>
+      </Container>
+    </section>
   );
 };
 
@@ -68,6 +71,12 @@ const Items = styled.div`
   > p {
     font-size: 1.3rem;
   }
+
+  @media (max-width: 768px){
+    > img {
+      width: 90%;
+    }
+  }
 `;
 
 const Buttons = styled.div`
@@ -84,6 +93,13 @@ const View = styled.button`
   background-color: inherit;
   border: 1px solid #10a19d;
   font-size: 1rem;
+
+  
+  @media (max-width: 548px){
+    font-size: 0.9rem;
+    border-radius: 7px;
+
+  }
 `;
 
 const Order = styled.button`
@@ -92,4 +108,10 @@ const Order = styled.button`
   width: 40%;
   font-size: 1rem;
   background-color: #b5f4ed;
+  border: 1px solid #b5f4ed;
+
+  @media (max-width: 548px){
+    font-size: 0.9rem;
+    border-radius: 7px;
+  }
 `;

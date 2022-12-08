@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import { Container } from "../Container";
 import { icons, works } from "../../constants/works.data";
-export const Works = () => {
+
+export const Works = ({forwardRef}) => {
   return (
-    <Background>
+    <Background ref={forwardRef}>
       <Container>
         <Center>
           <h1>How does it work</h1>
@@ -57,12 +58,27 @@ const Center = styled.div`
   > iframe {
     margin: 20px 0;
   }
+
+  @media (max-width: 548px){
+    iframe {
+      width: 80%;
+      height: 200px;
+    }
+
+    width: calc(100% - 20px);
+    margin: auto;
+  }
 `;
 
 const CardList = styled.div`
   display: flex;
   gap: 5px;
   flex-wrap: nowrap;
+
+  @media (max-width: 548px){
+    flex-wrap: wrap;
+    gap: 3px;
+  }
 `;
 
 const Card = styled.div`
@@ -82,6 +98,10 @@ const Card = styled.div`
     font-size: 0.9rem;
     opacity: 0.8;
   }
+
+  @media (max-width: 548px){
+    /* padding: 10px; */
+  }
 `;
 const Icons = styled.span`
   font-size: 1.4rem;
@@ -92,4 +112,10 @@ const Icons = styled.span`
   justify-content: center;
   width: 50px;
   height: 50px;
+
+  @media (max-width: 548px){
+    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+  }
 `;

@@ -1,6 +1,6 @@
 import {Container} from "../Container.jsx"
 import styled from "styled-components";
-import {AiOutlineCheckCircle} from "react-icons/ai";
+import {AiOutlineCheckCircle, AiOutlineCloseCircle} from "react-icons/ai";
 import {packets} from "../../constants/packets.data.js"
 
 
@@ -11,17 +11,24 @@ export const Packet = () => {
 		<h1>Choose Packet</h1>
 		<p>choose the packet that suits your needs</p>
 		<Flex>
-			<Item>
+    {packets.map((item, i) => (
+			<Item key={i}>
 				<Header>
-					<Grade>Gold</Grade>
-					<span>Rp.120.000</span>
-					<strong>Rp.99.000</strong>
+					<Grade bg={item.bgColor}>{item.grade}</Grade>
+					<span>{item.price_discount}k</span>
+					<strong>{item.price_finally}k</strong>
 				</Header>
-				<List>
-					<
-				</List>
+				{/* <List> */}
+          {item.data.map((feature,i) => (
+					<ListItem key={i}>
+            {feature.status === true ? <AiOutlineCheckCircle color="#5F8D4E" size={20}/> : <AiOutlineCloseCircle size={20} color="#F7A4A4"/>}
+            <span>{feature.label}</span>
+          </ListItem>
+          ))}
+          <Order>Order</Order>
 			</Item>
-		</Flex>
+          ))}
+    </Flex>
 	</Main>
 </Container>
   )
@@ -29,7 +36,9 @@ export const Packet = () => {
 
 const Main = styled.main`
   width: 100%;
-  align-items: center,
+  /* overflow-x: auto; */
+  align-items: center;
+  margin: 20px 0;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -44,13 +53,27 @@ const Main = styled.main`
 
 const Flex = styled.div`
   display: flex;
+  margin-top: 20px;
   gap:8px;
+  position: relative;
+  /* flex: auto; */
+  flex-wrap: nowrap;
+  position: relative;
+  overflow-x: auto;
   width: 100%;
+  text-transform: capitalize;
+
 `
 
 const Item = styled.div`
-  display:grid;
   flex:1;
+  width: 300px;
+  max-height: max-content;
+  margin: 10px;
+
+  @media (max-width: 548px){
+    min-width: calc(80% - 20px);
+  }
 `
 
 const Header = styled.div`
@@ -66,9 +89,31 @@ const Header = styled.div`
   }
 `
 const Grade = styled.div`
-  background-color: #FCF9BE;
-  color: #10a19d;
-  padding: 7px 5px;
+  background-color: ${props => props.bg};
+  color: white;
+  padding: 10px 5px;
   margin-bottom: 5px;
 `
-//diamond b-color: 46C2CB
+const Order = styled.button`
+  background-color: #10a19d;
+  color: white;
+  font-size: 1.1rem;
+  margin: 12px auto;
+  padding: 5px 10px;
+  border-radius: 5px;
+`
+const ListItem = styled.li`
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  line-height: 1.7rem;
+  font-weight: 500;
+
+  @media (max-width: 54px){
+    text-align: left;
+    align-items: left;
+  }
+`
+
+//diamond b-color: #46C2CB
+//gold bg-color: #FCF9BE

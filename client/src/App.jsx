@@ -1,24 +1,17 @@
-import { Header } from "./components/Header.style.jsx";
-import { About } from "./components/home/About.style.jsx";
-import { Features } from "./components/home/Features.style.jsx";
-import { Hero } from "./components/home/Hero.style.jsx";
-import { Options } from "./components/home/Options.style.jsx";
-import { Reviews } from "./components/home/Reviews.style.jsx";
-import { Works } from "./components/home/Works.style.jsx";
-import {Packet} from "./components/home/Packets.style.jsx"
+import {Catalogs} from "./pages/Catalogs.style.jsx";
+import {Routes, Route, BrowserRouter as Router} from "react-router-dom"
+import Home from "./pages/Home.jsx";
 
 function App() {
   return (
-	<div className="App">
-		<Header />
-		<Hero />
-		<About />
-		<Features/>
-		<Options />
-		<Works />
-		<Reviews />
-		<Packet/>
-	</div>
+	<Router>
+		<div className="App">
+			<Routes>
+				<Route index element={<Home/>}/>
+				<Route path="/catalogs" element={<Catalogs/>}/>
+			</Routes>
+		</div>
+	</Router>
   );
 }
 

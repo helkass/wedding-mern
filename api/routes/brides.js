@@ -3,11 +3,11 @@ const Bride = require("../models/Bride");
 
 // REGISTER brides
 router.post("/register", async (req, res) => {
-  const data = req.body;
+  const form = req.body;
+  const newBride = new Bride(form)
   try {
-    Bride.create(data, function (err, data) {
-      return res.status(201).json(data);
-    });
+    const data = await newBride.save();
+    res.status(200).json(data) 
   } catch (error) {
     res.status(500).json(error);
   }
@@ -27,8 +27,6 @@ router.get("/", async (req, res) => {
 //GET BRIDE
 router.get("/:id", async (req, res) => {
   try {
-    // const shortnameMan = req.params.man;
-    // const shortnameGirl = req.params.girl;
     const bride = await Bride.findById(req.params.id);
     res.status(200).json(bride);
   } catch (err) {
@@ -36,4 +34,19 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// bug
+router.delete('/delete/:id', async (req, res) => {
+  const id = req.params.id;
+
+  // const documents = await Bride.get().collection('brides');
+
+  try {
+    if(id){
+      await Bride.findByIdAndDelete(id)
+      return res.status(200).json({message: "delete success!"}) 
+    }
+  } catch (error) {
+    res.status(500),json({error: "delete failure!"})
+  }
+})
 module.exports = router;
